@@ -5,7 +5,7 @@
         <label for="username">
           <input v-model="username" id="username" type="text" />
         </label>
-        <button type="button">Add</button>
+        <button type="submit">Add</button>
       </form>
       <button type="button">Clear All</button>
     </header>
@@ -29,6 +29,9 @@ export default Vue.extend({
   },
   components: {
     GithubUserListItem: () => import("./github-user-list-item.vue"),
+  },
+  methods: {
+    submit: () => {},
   },
 });
 </script>
