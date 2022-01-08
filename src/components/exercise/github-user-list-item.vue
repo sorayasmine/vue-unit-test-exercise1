@@ -6,32 +6,32 @@
     </div>
     <figure class="gh-list-item__profpic">
       <div class="gh-list-item__profpic__inner">
-        <img :src="data.avatar_url" :alt="data.name" />
+        <img :src="uname.avatar_url" :alt="uname.name" />
       </div>
     </figure>
     <div>
       <header>
-        <h3 style="margin: 0">{{ data.username }}</h3>
+        <h3 style="margin: 0">{{ uname.username }}</h3>
         <p style="margin: 0; font-size: 0.8rem">{{ data.location }}</p>
       </header>
       <section class="gh-list-item__section-info">
         <p class="gh-list-item__section-info__item">
           <span>Public Repos</span>
-          <span>{{ data.public_repos }}</span>
+          <span>{{ uname.public_repos }}</span>
         </p>
         <p class="gh-list-item__section-info__item">
           <span>Followers</span>
-          <span>{{ data.followers }}</span>
+          <span>{{ uname.followers }}</span>
         </p>
         <p class="gh-list-item__section-info__item">
           <span>Following</span>
-          <span>{{ data.following }}</span>
+          <span>{{ uname.following }}</span>
         </p>
       </section>
       <section class="gh-list-item__section-info">
         <p class="gh-list-item__section-info__item">
           <span>Registered at</span>
-          <span>{{ data.created_at }}</span>
+          <span>{{ uname.created_at }}</span>
         </p>
       </section>
     </div>
@@ -40,22 +40,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      username: "",
-      data: undefined,
-      url: "",
-    };
-  },
-  methods: {
-    composeUrl(username) {
-      return `https://api.github.com/users/${username}`;
-    },
-
-    async fetchData() {
-      this.url = this.composeUrl(this.username);
-      const response = await fetch(this.url);
-      this.data = await response.json();
+  props: {
+    uname: {
+      type: Object,
+      required: true,
     },
   },
 };

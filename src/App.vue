@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <GithubUserList />
-    <GithubCard />
     <router-view />
   </div>
 </template>
 
 <script>
-import GithubUserList from "../src/components/exercise/github-user-list.vue";
-import GithubCard from "./components/github-card.vue";
 export default {
-  components: {
-    GithubUserList,
-    GithubCard,
-  },
+  components: {},
 };
 </script>
 <style lang="scss">
